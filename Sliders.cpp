@@ -5,9 +5,9 @@ Sliders::Sliders(){
     r_slider = new QSlider(Qt::Horizontal);
     g_slider = new QSlider(Qt::Horizontal);
     b_slider = new QSlider(Qt::Horizontal);
-    r_slider -> setRange(0,100);
-    g_slider -> setRange(0,100);
-    b_slider -> setRange(0,100);
+    r_slider -> setRange(0,255);
+    g_slider -> setRange(0,255);
+    b_slider -> setRange(0,255);
     h_slider = new QSlider(Qt::Horizontal);
     s_slider = new QSlider(Qt::Horizontal);
     v_slider = new QSlider(Qt::Horizontal); 
@@ -54,5 +54,11 @@ void Sliders::sendFurther(int recived){
         emit valueChanged(recived,'g');
     }else if(sender() == b_slider){
         emit valueChanged(recived,'b');
+    }else if(sender() == h_slider){
+        emit valueChanged(recived,'h');
+    }else if(sender() == s_slider){
+        emit valueChanged(recived,'s');
+    }else if(sender() == v_slider){
+        emit valueChanged(recived,'v');
     }
 }
