@@ -1,19 +1,21 @@
 #ifndef MYWIDGET_H
 #define MYWIDGET_H
 
+
 #include <QWidget>
+#include <QObject>
+#include "Holder.h"
 #include "Sliders.h"
+#include <QHBoxLayout>
 
 class MyWidget : public QWidget{
     Q_OBJECT
 public:
     MyWidget();
     ~MyWidget();
-protected:
-    void paintEvent(QPaintEvent*);
 private:
-    QImage *img;
+    Holder *holder;
     Sliders *sliders;
-    void MySetPixel(int x,int y,int R,int G,int B,int A);
+    QHBoxLayout *mainLayout;
 };
 #endif

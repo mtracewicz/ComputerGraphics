@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/lib/qt/**",
+                "/usr/include/qt/QtWidgets"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
