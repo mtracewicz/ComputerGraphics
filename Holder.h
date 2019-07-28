@@ -1,6 +1,7 @@
 #ifndef HOLDER_H
 #define HOLDER_H
 
+#include <cmath>
 #include <QLabel>
 #include <QWidget>
 #include <QSlider>
@@ -17,8 +18,6 @@ private:
     QLabel *imgHolder;
     QPixmap *map;
     QGridLayout *layout;
-    int colorConst;
-    char whichColor;
     void MySetPixel(int x,int y,int R,int G,int B,int A);
 protected:
     void paintEvent(QPaintEvent*);

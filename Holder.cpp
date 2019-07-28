@@ -41,37 +41,190 @@ void Holder::paintEvent(QPaintEvent*){
 }
 
 void Holder::setColor(int value,char color){
-    this -> colorConst = value;
-    this -> whichColor = color;
-
     switch(color){
         case 'r':
+        {
+            if(img -> width() != 255){
+                img = new QImage(255,255,QImage::Format_RGBA8888);
+            }
             x -> setText("G");
             y -> setText("B");
-            for(int i = 0; i < img -> width();i++){
-                for(int j = img -> height(); j > 0 ;j--){    
-                    this -> MySetPixel(i,j-1,value,i,255-j,255);
+            for(int i = 0; i < 255; i++){
+                for(int j = 0; j < 255; j++){
+                    this -> MySetPixel(i,j,value,i,255 - j,255);
+                    }
                 }
-            }
             break;
+        }
         case 'g':
+        {
+            if(img -> width() != 255){
+                img = new QImage(255,255,QImage::Format_RGBA8888);
+            }
             x -> setText("R");
             y -> setText("B");
-            for(int i = 0; i < img -> width();i++){
-                for(int j = img -> height(); j > 0 ;j--){    
-                    this -> MySetPixel(i,j-1,i,value,255-j,255);
+            for(int i = 0; i < 255; i++){
+                for(int j = 0; j < 255; j++){
+                    this -> MySetPixel(i,j,i,value,255-j,255);
+                    }
                 }
-            }
             break;
+        }
         case 'b':
+        {
+            if(img -> width() != 255){
+                img = new QImage(255,255,QImage::Format_RGBA8888);
+            }
             x -> setText("R");
             y -> setText("G");
-            for(int i = 0; i < img -> width();i++){
-                for(int j = img -> height(); j > 0 ;j--){    
-                    this -> MySetPixel(i,j-1,i,255-j,value,255);
+            for(int i = 0; i < 255; i++){
+                for(int j = 0; j < 255; j++){
+                    this -> MySetPixel(i,j,i,255-j,value,255);
+                    }
+                }
+            break;
+        }
+        case 'h':
+        {
+            if(img -> width() != 505){
+                img = new QImage(105,105,QImage::Format_RGBA8888);
+            }
+            x -> setText("S");
+            y -> setText("V");
+            for(int s = 0; s <= 100;s++){
+                for(int v = 0; v <= 100 ;v++){
+                    double r = 0.0,g = 0.0,b = 0.0;
+                    double c = (((double)s/100) * ((double)v/100));
+                    double hh = value / 60.0;
+                    double x = c * (1 - std::abs(fmod(hh, 2) - 1));
+                    double m = ((double)v/100) - c; 
+                    if(0 <= hh && hh <= 1){
+                        r = c;
+                        g = x;
+                        b = 0;
+                    }else if(1 < hh && hh <= 2){
+                        r = x;
+                        g = c;
+                        b = 0;
+                    }else if(2 < hh && hh <= 3){
+                        r = 0;
+                        g = c;
+                        b = x;
+                    }else if(3 < hh && hh <= 4){
+                        r = 0;
+                        g = x;
+                        b = c;
+                    }else if(4 < hh && hh <= 5){
+                        r = x;
+                        g = 0;
+                        b = c;
+                    }else if(5 < hh && hh <= 6){
+                        r = c;
+                        g = 0;
+                        b = x;
+                    }
+                    r = (r+m)*255.0;
+                    g = (g+m)*255.0;
+                    b = (b+m)*255.0;
+                    this -> MySetPixel(s,104 - v,int(r),int(g),int(b),255);
                 }
             }
             break;
+        }
+        case 's':
+        {
+            if(img -> width() != 360){
+                img = new QImage(360,105,QImage::Format_RGBA8888);
+            }
+            x -> setText("H");
+            y -> setText("V");
+            for(int h = 0; h < 360;h++){
+                for(int v = 0; v <= 100 ;v++){
+                    double r = 0.0,g = 0.0,b = 0.0;
+                    double c = (((double)value/100) * ((double)v/100));
+                    double hh = h / 60.0;
+                    double x = c * (1 - std::abs(fmod(hh, 2) - 1));
+                    double m = ((double)v/100) - c; 
+                    if(0 <= hh && hh <= 1){
+                        r = c;
+                        g = x;
+                        b = 0;
+                    }else if(1 < hh && hh <= 2){
+                        r = x;
+                        g = c;
+                        b = 0;
+                    }else if(2 < hh && hh <= 3){
+                        r = 0;
+                        g = c;
+                        b = x;
+                    }else if(3 < hh && hh <= 4){
+                        r = 0;
+                        g = x;
+                        b = c;
+                    }else if(4 < hh && hh <= 5){
+                        r = x;
+                        g = 0;
+                        b = c;
+                    }else if(5 < hh && hh <= 6){
+                        r = c;
+                        g = 0;
+                        b = x;
+                    }
+                    r = (r+m)*255.0;
+                    g = (g+m)*255.0;
+                    b = (b+m)*255.0;
+                    this -> MySetPixel(h,104-v,int(r),int(g),int(b),255);
+                }
+            }
+            break;
+        }
+        case 'v':
+        {
+            if(img -> width() != 360){
+                img = new QImage(360,105,QImage::Format_RGBA8888);
+            }
+            x -> setText("H");
+            y -> setText("S");
+            for(int h = 0; h < 360;h++){
+                for(int s = 0; s <= 100 ;s++){
+                    double r = 0.0,g = 0.0,b = 0.0;
+                    double c = (((double)s/100) * ((double)value/100));
+                    double hh = h / 60.0;
+                    double x = c * (1 - std::abs(fmod(hh, 2) - 1));
+                    double m = ((double)value/100) - c; 
+                    if(0 <= hh && hh <= 1){
+                        r = c;
+                        g = x;
+                        b = 0;
+                    }else if(1 < hh && hh <= 2){
+                        r = x;
+                        g = c;
+                        b = 0;
+                    }else if(2 < hh && hh <= 3){
+                        r = 0;
+                        g = c;
+                        b = x;
+                    }else if(3 < hh && hh <= 4){
+                        r = 0;
+                        g = x;
+                        b = c;
+                    }else if(4 < hh && hh <= 5){
+                        r = x;
+                        g = 0;
+                        b = c;
+                    }else if(5 < hh && hh <= 6){
+                        r = c;
+                        g = 0;
+                        b = x;
+                    }
+                    r = (r+m)*255.0;
+                    g = (g+m)*255.0;
+                    b = (b+m)*255.0;
+                    this -> MySetPixel(h,104-s,int(r),int(g),int(b),255);
+                }
+            }
+            break;
+        }
     }
     repaint();
 }

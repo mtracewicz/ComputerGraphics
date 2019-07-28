@@ -11,7 +11,7 @@ Sliders::Sliders(){
     h_slider = new QSlider(Qt::Horizontal);
     s_slider = new QSlider(Qt::Horizontal);
     v_slider = new QSlider(Qt::Horizontal); 
-    h_slider -> setRange(0,100);
+    h_slider -> setRange(0,360);
     s_slider -> setRange(0,100);
     v_slider -> setRange(0,100);
     
@@ -34,6 +34,9 @@ Sliders::Sliders(){
     QObject::connect(r_slider,&QSlider::valueChanged,this,&Sliders::sendFurther);
     QObject::connect(g_slider,&QSlider::valueChanged,this,&Sliders::sendFurther);
     QObject::connect(b_slider,&QSlider::valueChanged,this,&Sliders::sendFurther);
+    QObject::connect(h_slider,&QSlider::valueChanged,this,&Sliders::sendFurther);
+    QObject::connect(s_slider,&QSlider::valueChanged,this,&Sliders::sendFurther);
+    QObject::connect(v_slider,&QSlider::valueChanged,this,&Sliders::sendFurther);
 }
 
 Sliders::~Sliders(){
