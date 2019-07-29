@@ -1,7 +1,7 @@
 #include "Holder.h"
 #include <QDebug>
 Holder::Holder(){
-    img = new QImage(255,255,QImage::Format_RGBA8888);
+    img = new QImage(360,315,QImage::Format_RGBA8888);
     x = new QLabel("G");
     y = new QLabel("B");
     imgHolder = new QLabel("");
@@ -52,8 +52,8 @@ void Holder::setColor(int value,char color){
             for(int i = 0; i < 255; i++){
                 for(int j = 0; j < 255; j++){
                     this -> MySetPixel(i,j,value,i,255 - j,255);
-                    }
                 }
+            }
             break;
         }
         case 'g':
@@ -66,8 +66,8 @@ void Holder::setColor(int value,char color){
             for(int i = 0; i < 255; i++){
                 for(int j = 0; j < 255; j++){
                     this -> MySetPixel(i,j,i,value,255-j,255);
-                    }
                 }
+            }
             break;
         }
         case 'b':
@@ -80,14 +80,14 @@ void Holder::setColor(int value,char color){
             for(int i = 0; i < 255; i++){
                 for(int j = 0; j < 255; j++){
                     this -> MySetPixel(i,j,i,255-j,value,255);
-                    }
                 }
+            }
             break;
         }
         case 'h':
         {
-            if(img -> width() != 505){
-                img = new QImage(105,105,QImage::Format_RGBA8888);
+            if(img -> width() != 315){
+                img = new QImage(315,315,QImage::Format_RGBA8888);
             }
             x -> setText("S");
             y -> setText("V");
@@ -126,7 +126,11 @@ void Holder::setColor(int value,char color){
                     r = (r+m)*255.0;
                     g = (g+m)*255.0;
                     b = (b+m)*255.0;
-                    this -> MySetPixel(s,104 - v,int(r),int(g),int(b),255);
+                    for(int i = 0;i < 3;i++){
+                        for(int j = 0; j < 3;j++){
+                            this -> MySetPixel(3*s+i,314 - (3*v-j),int(r),int(g),int(b),255);
+                        }
+                    }
                 }
             }
             break;
@@ -134,7 +138,7 @@ void Holder::setColor(int value,char color){
         case 's':
         {
             if(img -> width() != 360){
-                img = new QImage(360,105,QImage::Format_RGBA8888);
+                img = new QImage(360,315,QImage::Format_RGBA8888);
             }
             x -> setText("H");
             y -> setText("V");
@@ -173,7 +177,9 @@ void Holder::setColor(int value,char color){
                     r = (r+m)*255.0;
                     g = (g+m)*255.0;
                     b = (b+m)*255.0;
-                    this -> MySetPixel(h,104-v,int(r),int(g),int(b),255);
+                    this -> MySetPixel(h,314-(3*v),int(r),int(g),int(b),255);
+                    this -> MySetPixel(h,314-(3*v+1),int(r),int(g),int(b),255);
+                    this -> MySetPixel(h,314-(3*v+2),int(r),int(g),int(b),255);
                 }
             }
             break;
@@ -181,7 +187,7 @@ void Holder::setColor(int value,char color){
         case 'v':
         {
             if(img -> width() != 360){
-                img = new QImage(360,105,QImage::Format_RGBA8888);
+                img = new QImage(360,315,QImage::Format_RGBA8888);
             }
             x -> setText("H");
             y -> setText("S");
@@ -220,7 +226,9 @@ void Holder::setColor(int value,char color){
                     r = (r+m)*255.0;
                     g = (g+m)*255.0;
                     b = (b+m)*255.0;
-                    this -> MySetPixel(h,104-s,int(r),int(g),int(b),255);
+                    this -> MySetPixel(h,314-(3*s),int(r),int(g),int(b),255);
+                    this -> MySetPixel(h,314-(3*s+1),int(r),int(g),int(b),255);
+                    this -> MySetPixel(h,314-(3*s+2),int(r),int(g),int(b),255);
                 }
             }
             break;
