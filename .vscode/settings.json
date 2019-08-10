@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "qobject": "cpp",
+        "qgridlayout": "cpp",
+        "new": "cpp"
+    }
+}
