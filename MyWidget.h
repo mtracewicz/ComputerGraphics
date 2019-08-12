@@ -12,7 +12,7 @@
 #include <QFileDialog>
 #include <QString>
 #include"FilesList.h"
-
+#include"Blender.h"
 class MyWidget : public QWidget{
     Q_OBJECT
 

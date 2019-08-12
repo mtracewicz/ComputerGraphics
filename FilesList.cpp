@@ -8,10 +8,15 @@ FilesList::~FilesList(){
     for(long unsigned int i = 0;i < files.size();i++){
         delete files[i];
     }
+	files.clear();
     delete layout;
 }
 void FilesList::loadDirectory(QString dir){
-    DIR *dpdf;
+    for(long unsigned int i = 0;i < files.size();i++){
+        delete files[i];
+    }
+	files.clear();
+	DIR *dpdf;
 	struct dirent *epdf;
 	QString fileName;
 	QByteArray ba = dir.toLocal8Bit();
@@ -30,7 +35,10 @@ void FilesList::loadDirectory(QString dir){
     addImagesToList();
 }
 void FilesList::addImagesToList(){
-    for(long unsigned int i = 0;i < files.size();i++){
+	if(files.size()>0){
+    for(long unsigned int i = 0;i < files.size()-1;i++){
         layout->addWidget(files[i]);
     }
+	layout->addWidget(files[files.size()-1]->fileName);
+	}
 }

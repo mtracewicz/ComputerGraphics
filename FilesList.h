@@ -16,9 +16,9 @@ public:
     FilesList();
     ~FilesList();
     void loadDirectory(QString dir);
+    std::vector<OptionSelector*> files;
 private:
     QVBoxLayout *layout;
-    std::vector<OptionSelector*> files;
     void addImagesToList();
 };
 #endif

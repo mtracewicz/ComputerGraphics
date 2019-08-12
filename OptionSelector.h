@@ -15,12 +15,12 @@ public:
     OptionSelector();
     OptionSelector(QString fileName);
     ~OptionSelector();
-private:
-    QGridLayout *layout;
     QImage *image;
     QLabel *fileName;
     QComboBox *blendingMode;
     QSlider *alpha;
+private:
+    QGridLayout *layout;
     QString cutName(QString name);
 };
 #endif

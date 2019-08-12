@@ -45,6 +45,21 @@ void MyWidget::paintEvent(QPaintEvent*){
 	p.drawImage(0,0,*img);
 }
 void MyWidget::blend(){
+	Blender blender;
+	if(list->files.size() > 0){
+		blender.blendInNormalMode(list->files[list->files.size()-1]->image,img);
+	}
+	for(int i = list->files.size()-2;i>=0;i--){
+		if(list->files[i]->blendingMode->currentIndex() == 0){
+			blender.blendInNormalMode(list->files[i]->image,img);
+		}else if(list->files[i]->blendingMode->currentIndex() == 1){
+			blender.blendInMultiplyMode(list->files[i]->image,img,list->files[i]->alpha->value());
+		}else if(list->files[i]->blendingMode ->currentIndex() == 2){
+			blender.blendInOverlayMode(list->files[i]->image,img,list->files[i]->alpha->value());
+		}else if(list->files[i]->blendingMode->currentIndex() == 3){
+			blender.blendInScreenMode(list->files[i]->image,img,list->files[i]->alpha->value());
+		}
+	}
 	repaint();
 }
 void MyWidget::loadFiles(){

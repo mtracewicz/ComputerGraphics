@@ -8,9 +8,10 @@ class Blender : public QWidget{
 public:
     Blender();
     ~Blender();
+    void blendInNormalMode(QImage *foreground, QImage *background);
+    void blendInMultiplyMode(QImage *foreground, QImage *background,double alpha);
+    void blendInScreenMode(QImage *foreground, QImage *background,double alpha);
+    void blendInOverlayMode(QImage *foreground, QImage *background,double alpha);
 private:
-    QImage* blendInNormalMode(QImage *foreground, QImage *background,double alpha);
-    QImage* blendInMultiplyMode(QImage *foreground, QImage *background,double alpha);
-    QImage* blendInScreenMode(QImage *foreground, QImage *background,double alpha);
 };
 #endif

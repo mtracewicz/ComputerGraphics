@@ -1,5 +1,5 @@
 #include "OptionSelector.h"
-
+#include <QDebug>
 OptionSelector::OptionSelector(){
     layout = new QGridLayout();
     fileName = new QLabel();
@@ -12,8 +12,11 @@ OptionSelector::OptionSelector(QString fileName){
     blendingMode = new QComboBox();
     blendingMode -> addItem("Normal");
     blendingMode -> addItem("Multiply");
+    blendingMode -> addItem("Overlay");
     blendingMode -> addItem("Screen");
     alpha = new QSlider(Qt::Horizontal);
+    alpha->setMaximum(100);
+    alpha->setMinimum(1);
     alpha->setMaximumWidth(100);
     blendingMode->setMaximumWidth(100);
     this->fileName->setMaximumWidth(100);
@@ -21,8 +24,8 @@ OptionSelector::OptionSelector(QString fileName){
     layout -> addWidget(blendingMode,0,2);
     layout -> addWidget(alpha,0,1);
     layout -> addWidget(this->fileName,0,0);
-    setLayout(layout);
     image = new QImage(fileName);
+    setLayout(layout);
 }
 OptionSelector::~OptionSelector(){
     delete layout;
