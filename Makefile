@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Cube1.0.0
-DISTDIR = /home/mtracewicz/Downloads/Cube/.tmp/Cube1.0.0
+DISTDIR = /home/mtracewicz/Code/C++/RubicsCube/.tmp/Cube1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now
 LIBS          = $(SUBLIBS) /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so /usr/lib/libGL.so -lpthread   
@@ -160,7 +160,6 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/qt_config.prf \
 		/usr/lib/qt/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/qt/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/qt/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/qt/mkspecs/features/toolchain.prf \
 		/usr/lib/qt/mkspecs/features/default_pre.prf \
@@ -295,7 +294,6 @@ Makefile: Cube.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/
 		/usr/lib/qt/mkspecs/features/qt_config.prf \
 		/usr/lib/qt/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/qt/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/qt/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/qt/mkspecs/features/toolchain.prf \
 		/usr/lib/qt/mkspecs/features/default_pre.prf \
@@ -413,7 +411,6 @@ Makefile: Cube.pro /usr/lib/qt/mkspecs/linux-g++/qmake.conf /usr/lib/qt/mkspecs/
 /usr/lib/qt/mkspecs/features/qt_config.prf:
 /usr/lib/qt/mkspecs/linux-g++/qmake.conf:
 /usr/lib/qt/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/qt/mkspecs/features/exclusive_builds.prf:
 /usr/lib/qt/mkspecs/features/toolchain.prf:
 /usr/lib/qt/mkspecs/features/default_pre.prf:
@@ -490,7 +487,7 @@ moc_MainWidget.cpp: MainWidget.h \
 		Wall.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/mtracewicz/Downloads/Cube/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/mtracewicz/Downloads/Cube -I/home/mtracewicz/Downloads/Cube -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.1.0 -I/usr/include/c++/9.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed -I/usr/include MainWidget.h -o moc_MainWidget.cpp
+	/usr/bin/moc $(DEFINES) --include /home/mtracewicz/Code/C++/RubicsCube/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/mtracewicz/Code/C++/RubicsCube -I/home/mtracewicz/Code/C++/RubicsCube -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include MainWidget.h -o moc_MainWidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

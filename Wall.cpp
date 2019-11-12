@@ -7,12 +7,12 @@ Wall::Wall(){
 }
 Color Wall::getTileColor(int i){
     Color color;
-    Color red(255,0,0,255);
-    Color green(0,204,0,255);
-    Color blue(0,0,255,255);
-    Color orange(255,128,0,255);
-    Color grey(192,192,192,255);
-    Color pink(255,51,255,255);
+    Color red(255,52,52,255);
+    Color green(139,195,74,255);
+    Color blue(44,138,255,255);
+    Color orange(245,124,0,255);
+    Color grey(00,96,88,255);
+    Color pink(194,18,91,255);
     if(tiles[i] < 9){
         color = red;
     }else if(tiles[i]<18){

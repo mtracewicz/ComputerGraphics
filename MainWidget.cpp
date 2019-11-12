@@ -2,7 +2,7 @@
 MainWidget::MainWidget(){
     this->setFixedSize(800,600);
     white = new Color(255,255,255,255);
-    black = new Color(0,0,0,255);
+    black = new Color(61,61,61,255);
     img = new QImage(800,600,QImage::Format_RGBA8888);
     alpha = 0;
     beta = 0;
@@ -26,12 +26,12 @@ void MainWidget::paintEvent(QPaintEvent*){
 	p.drawImage(0,0,*img);
 }
 void MainWidget::loadWalls() {
-    Color red(255,0,0,255);
-    Color green(0,204,0,255);
-    Color blue(0,0,255,255);
-    Color orange(255,128,0,255);
-    Color grey(192,192,192,255);
-    Color pink(255,51,255,255);
+    Color red(255,52,52,255);
+    Color green(139,195,74,255);
+    Color blue(44,138,255,255);
+    Color orange(245,124,0,255);
+    Color grey(00,96,88,255);
+    Color pink(194,18,91,255);
 
     walls[0].color = red;
     walls[1].color = green;
